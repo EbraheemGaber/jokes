@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 100vh;
+        background-color: darkorange;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .joke {
+        width: 600px;
+        height: 400px;
+        background-color: #ec7b06;
+        border-radius: 30px;
+        position: relative;
+      }
+      .emoj {
+        font-size: 110px;
+        transform: translateX(200px);
+      }
+      .text{
+        color:cornsilk;font-size: 20px;text-align: center;transform: translateY(20px);
+      }
+      button{
+        background-color:orange;
+        left:20% ;
+        position: absolute;
+        cursor: pointer;
+        color: #ec7b06;
+        font-size: 20px;
+border: none;
+position: absolute;
+        border-radius: 20px;
+        width: 300px;
+        height: 80px;
+bottom: 10px;
+        
+      }
+     
+    </style>
+  </head>
+  <body>
+    <div class="joke">
+      <div class="emoj">&#128514;</div>
+      <div class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor nemo
+        magni aliquid inventore libero et sapiente exercitationem error aut
+        aliquam?
+      </div>
+      <button>get  joke today</button>
+    </div>
+  </body>
+  <script>
+    let url = "https://v2.jokeapi.dev/joke/Any?type=single";
+    let btn=document.body.querySelector("button");
+    let text=document.body.querySelector(".text");
+   
+
+   
+      btn.addEventListener("click",()=>
+      fetch(url)
+      .then((data) => data.json())
+      .then((data) => text.textContent=`${data.joke}
+      `)
+      );
+   
+
+  </script>
+</html>
