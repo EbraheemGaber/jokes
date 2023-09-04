@@ -23,52 +23,66 @@
         font-size: 110px;
         transform: translateX(200px);
       }
-      .text{
-        color:cornsilk;font-size: 20px;text-align: center;transform: translateY(20px);
+      .pic {
+        width: 50px;
+        height: 50px;
+        font-size: 110px;
+        transform: translate(250px,20px);
       }
-      button{
-        background-color:orange;
-        left:20% ;
+      .pic img {
+        width: 100px;
+        height: 100px;
+        border-radius: 40%;
+      }
+      .text {
+        color: cornsilk;
+        font-size: 20px;
+        text-align: center;
+        transform: translateY(100px);
+      }
+      button {
+        background-color: orange;
+        left: 25%;
         position: absolute;
         cursor: pointer;
         color: #ec7b06;
         font-size: 20px;
-border: none;
-position: absolute;
+        border: none;
+        position: absolute;
         border-radius: 20px;
         width: 300px;
         height: 80px;
-bottom: 10px;
-        
+        color: aliceblue;
+        bottom: 30px;
       }
-     
     </style>
   </head>
   <body>
     <div class="joke">
-      <div class="emoj">&#128514;</div>
+      <div class="pic">
+        <img src="omar.jpg" />
+      </div>
       <div class="text">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor nemo
         magni aliquid inventore libero et sapiente exercitationem error aut
         aliquam?
       </div>
-      <button>get  joke today</button>
+      <button>get joke today</button>
     </div>
   </body>
   <script>
     let url = "https://v2.jokeapi.dev/joke/Any?type=single";
-    let btn=document.body.querySelector("button");
-    let text=document.body.querySelector(".text");
-   
+    let btn = document.body.querySelector("button");
+    let text = document.body.querySelector(".text");
 
-   
-      btn.addEventListener("click",()=>
+    btn.addEventListener("click", () =>
       fetch(url)
-      .then((data) => data.json())
-      .then((data) => text.textContent=`${data.joke}
+        .then((data) => data.json())
+        .then(
+          (data) =>
+            (text.textContent = `${data.joke}
       `)
-      );
-   
-
+        )
+    );
   </script>
 </html>
